@@ -8,7 +8,7 @@ function insertSort (array) {
   let prev
   for (let i = 1; i < len; i++) {
     current = array[i]
-    prev = i - 1
+    prev = i
     while (prev >= 0 && array[prev] > current) {
       array[prev + 1] = array[prev]
       prev--
