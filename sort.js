@@ -2,7 +2,7 @@
 
 // 1、冒泡排序：比较所有相邻元素,如果第一个比第二个大，则交换它们。
 var a = [1, 3, 6, 3, 23, 76, 1, 34, 222, 6, 456, 221];
-function bubbleSort(array) {
+function bubbleSort (array) {
   const len = array.length
   if (len < 2) return array
   for (let i = 0; i < len; i++) {
@@ -16,12 +16,12 @@ function bubbleSort(array) {
   }
   return array
 }
- 
+
 bubbleSort(a);  // [1, 1, 3, 3, 6, 6, 23, 34, 76, 221, 222, 456]
 // 2、选择排序：找到数组中的最小值，选中它并将其放置在第一位。
 var a = [1, 3, 6, 3, 23, 76, 1, 34, 222, 6, 456, 221];
- 
-function selectSort(array) {
+
+function selectSort (array) {
   const len = array.length
   let temp
   let minIndex
@@ -38,12 +38,12 @@ function selectSort(array) {
   }
   return array
 }
- 
+
 selectSort(a); // [1, 1, 3, 3, 6, 6, 23, 34, 76, 221, 222, 456]
 // 3、插入排序：从第二个数开始往前比，比它大就往后排。
 var a = [1, 3, 6, 3, 23, 76, 1, 34, 222, 6, 456, 221];
- 
-function insertSort(array) {
+
+function insertSort (array) {
   const len = array.length
   let current
   let prev
@@ -58,16 +58,15 @@ function insertSort(array) {
   }
   return array
 }
- 
+
 insertSort(a); // [1, 1, 3, 3, 6, 6, 23, 34, 76, 221, 222, 456]
 
 // 4、归并排序：把数组劈成两半，再递归地对数组进行“分”操作，直到分成一个个单独的数。
-function fn(arr) {
-  function sort(left, right) {
+function fn (arr) {
+  function sort (left, right) {
     let i = 0;
     let j = 0;
     let result = [];
- 
     while (left[i] && right[j]) {
       if (left[i] < right[j]) {
         result.push(left[i++]);
@@ -75,26 +74,26 @@ function fn(arr) {
         result.push(right[j++]);
       }
     }
- 
+
     while (left[i]) {
       result.push(left[i++]);
     }
- 
+
     while (right[j]) {
       result.push(right[j++]);
     }
- 
+
     return result;
   }
- 
-  function fen(arr) {
+
+  function fen (arr) {
     if (arr.length < 2) return arr;
     let midIndex = Math.floor(arr.length / 2);
     let left = arr.slice(0, midIndex);
     let right = arr.slice(midIndex, arr.length);
     return sort(fen(left), fen(right));
   }
- 
+
   return fen(arr);
 }
 
@@ -123,44 +122,44 @@ console.log(bubble(a));
 // 6、堆排序
 
 var a = [1, 3, 6, 3, 23, 76, 1, 34, 222, 6, 456, 221];
- 
-function heap_sort(arr) {
+
+function heap_sort (arr) {
   var len = arr.length
   var k = 0
-  function swap(i, j) {
+  function swap (i, j) {
     var temp = arr[i]
     arr[i] = arr[j]
     arr[j] = temp
   }
- 
-  function max_heapify(start, end) {
+
+  function max_heapify (start, end) {
     var dad = start
     var son = dad * 2 + 1
     if (son >= end) return
     if (son + 1 < end && arr[son] < arr[son + 1]) {
       son++
     }
- 
+
     if (arr[dad] <= arr[son]) {
       swap(dad, son)
       max_heapify(son, end)
     }
   }
- 
+
   for (var i = Math.floor(len / 2) - 1; i >= 0; i--) {
     max_heapify(i, len)
   }
- 
- 
- 
+
+
+
   for (var j = len - 1; j > k; j--) {
     swap(0, j)
     max_heapify(0, j)
   }
   return arr
- 
+
 }
- 
+
 heap_sort(a); // [1, 1, 3, 3, 6, 6, 23, 34, 76, 221, 222, 456]
 
 
