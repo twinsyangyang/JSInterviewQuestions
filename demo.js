@@ -19,4 +19,4 @@ let bubble = (arr) => {
   });
   return bubble(left).concat(middleValue, bubble(right))
 };
-console.log([...new Set(bubble(arr1))], '好吧我服了');
+console.log([...new Set(bubble(arr1))], '好吧我服了')
