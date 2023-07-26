@@ -1,4 +1,3 @@
-/*中心扩散思想*/
 
 function findMostRepeatedChar (str) {
   const charCountMap = new Map();

@@ -1,4 +1,6 @@
 //最长回文字符串
+/*中心扩散思想*/
+
 let longestPalindrome = function (s) {
   if (s.length < 2) {
     return s
